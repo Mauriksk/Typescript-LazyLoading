@@ -6,6 +6,7 @@ import logo from '../logo.svg'
 import { Suspense } from 'react';
 
 
+
 export const Navigation = () => {
     return (
       <Suspense fallback={ <span>...Loading</span> }>
@@ -26,10 +27,10 @@ export const Navigation = () => {
                 <Routes>
                     {
                       routes.map( rutas => (
-                        <Route path={rutas.path} element={ <rutas.Component /> } />
+                        <Route key={rutas.path} path={rutas.path} element={ <rutas.Component /> } />
                       ))
                     }
-                    <Route path="/*" element={ <Navigate to="/lazy1" replace /> } />
+                    <Route path="/*" element={ <Navigate to={ routes[0].to } replace /> } />
                 </Routes>
 
             </div>
